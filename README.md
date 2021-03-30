@@ -12,3 +12,6 @@ Route | Method | Utility
 /signup | POST | create a new user in db
 /login | POST | authenticate a current user
 /logout | GET | log a user out
+
+# Postman
+A tool to simulate requests when we don't have a server :D

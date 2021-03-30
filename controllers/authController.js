@@ -7,9 +7,15 @@ module.exports.login_get = (request, response) => {
 }
 
 module.exports.signup_post = (request, response) => {
+	const { email, password } = request.body;
+
+	console.log(email, password);
 	response.send('new signup');
 }
 
 module.exports.login_post = (request, response) => {
+	const { email, password } = request.body;
+
+	console.log(email, password);
 	response.send('user login');
 }
