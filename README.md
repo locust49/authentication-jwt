@@ -15,3 +15,10 @@ Route | Method | Utility
 
 # Postman
 A tool to simulate requests when we don't have a server :D
+
+# Mongoose Validation
+
+We can use our own functions to validate stuff we want, but we also can use a 3rd party tool that does the job. 
+`npm install validator`
+
+###### N.B if the validator doesn't have a specific message property, we could define the error message just like in the line 9 of (this file)[https://github.com/locust49/nodejs-tuto/blob/jwt/controllers/authController.js]
