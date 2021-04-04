@@ -26,3 +26,14 @@ We can use our own functions to validate stuff we want, but we also can use a 3r
 # Mongoose Hooks
 
 Hooks are used to fire code at different points when documents are saved to database.
+
+# Hashing Passwords (bcrypt)
+
+Oh, so now I can see everyone's password and .. * *thinking of evil things* *
+
+**No !**
+Passwords should be hashed in order to protect our user's data if ever our database got compromised. 
+
+To do that, we'll be using bcrype.
+
+`npm install bcrypt`
