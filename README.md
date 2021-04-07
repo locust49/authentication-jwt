@@ -37,3 +37,9 @@ Passwords should be hashed in order to protect our user's data if ever our datab
 To do that, we'll be using bcrype.
 
 `npm install bcrypt`
+
+Hashing is a one way process, but again, it doesn't mean that a hashing algorithm can't be reversed. Reason why we should use a "salt" to the string we want to hash
+
+# Cookies 🍪🍪
+
+`npm install cookie-parser`
