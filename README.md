@@ -43,3 +43,29 @@ Hashing is a one way process, but again, it doesn't mean that a hashing algorith
 # Cookies 🍪🍪
 
 `npm install cookie-parser`
+
+# The theory of everything.. ish 
+
+JWT is made of 3 parts:
+<pre>
+Headers		| Tells the server what type of signature is being used (meta data about the token)
+Payload		| Is used to identify the user (user id but no sensitive data)
+Signature	| Makes the token secure (== stamp of authenticity)
+</pre>
+## [JWT Signature](https://www.youtube.com/watch?v=LZq0G8WUaII)
+
+<pre>
+Headers _
+	 | _ Hashed together _ Secret *(the only way to verify a token + stored in the server)*
+Payload _|	|
+		|
+ 	   Signature
+</pre>
+
+When the Header, Payload and the secure Secret string are hashed together, they create the token **signature** which is added to the end of the jwt after the Headers and Payload.
+
+`Headers.Payload.Signature`
+
+Our JWT is then added into a cookie and sent and stored in a browser.
+
+Seems hard and complicated.. but I heard it might be easier with the help of a package ...
