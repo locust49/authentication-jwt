@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const decode = require('jsonwebtoken/decode');
 
 const requireAuth = (request, response, next) => {
 
@@ -27,4 +28,32 @@ const requireAuth = (request, response, next) => {
 	}
 }
 
-module.exports = { requireAuth };
+// check current user
+const checkUser =  (request, response, next) => {
+	const token = request.cookies.jwt;
+
+	if (token)
+	{
+		jwt.verify(token, secret, async (error, decodedToken) => {
+			if (error)
+			{
+				console.log(error.message);
+				response.locals.user = null;
+				next();
+			}
+			else
+			{
+				console.log(decodedToken);
+				let user = await User.findById(decodedToken.id);
+				response.locals.user = user;
+				next();
+			}
+		});
+	}
+	else
+	{
+		response.locals.user = null;
+		next();
+	}
+}
+module.exports = { requireAuth , checkUser };
