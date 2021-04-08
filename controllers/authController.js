@@ -1,5 +1,6 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
+
 // handle errors
 const handleErrors = (error) => {
 	// console.log(error.message, error.code)
@@ -49,7 +50,7 @@ module.exports.signup_post = async (request, response) => {
 	}
 	catch (error){
 		const errors = handleErrors(error);
-		response.status(400).json(errors);
+		response.status(400).json({ errors });
 	}
 }
 
