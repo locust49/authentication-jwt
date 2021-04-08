@@ -88,3 +88,8 @@ To "prove" that a user is logged in, we should create a jwt that needs to be pre
 
 We need to detect that the JWT cookie exists on the request, secondly we need to verify that the jwt is authentic and hasn't been messed with.
 To do so, we create a [middleware](https://github.com/locust49/nodejs-tuto/blob/jwt/middleware/authMiddleware.js).
+
+# Logging out
+
+Now that we have used the JWt to maintain somehow the log in of a user, maybe that logging out means that we should destroy that cookie !
+Actually, we can't directly remove a cookie, but we're going to replace the value of it with an empty string with a **VERY** short expiration date ;)
