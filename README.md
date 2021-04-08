@@ -69,3 +69,9 @@ When the Header, Payload and the secure Secret string are hashed together, they 
 Our JWT is then added into a cookie and sent and stored in a browser.
 
 Seems hard and complicated.. but I heard it might be easier with the help of a package ...
+
+# New User Signup
+
+`npm install jsonwebtoken`
+
+Now, we can easily create a jwt with the method `jwt.sign()` where we specify the payload, secret sentence ? (i still don't get this part), and some atrtibutes such as the expiration time. After that, we send the token via a cookie :D
