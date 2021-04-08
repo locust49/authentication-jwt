@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const decode = require('jsonwebtoken/decode');
+const User = require('../models/User');
 
 const requireAuth = (request, response, next) => {
 
@@ -30,7 +30,8 @@ const requireAuth = (request, response, next) => {
 
 // check current user
 const checkUser =  (request, response, next) => {
-	const token = request.cookies.jwt;
+	const token = request.cookies.JWT;
+	const secret = 'this is the secret sentence which normally shouldnt be published anywhere';
 
 	if (token)
 	{
