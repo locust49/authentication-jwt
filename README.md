@@ -93,3 +93,10 @@ To do so, we create a [middleware](https://github.com/locust49/nodejs-tuto/blob/
 
 Now that we have used the JWt to maintain somehow the log in of a user, maybe that logging out means that we should destroy that cookie !
 Actually, we can't directly remove a cookie, but we're going to replace the value of it with an empty string with a **VERY** short expiration date ;)
+
+# Checking user
+
+Sometimes (Always), we need to show some links or features only to a logged in user, or maybe to a specific user. This is the utility of the JWT and *locals*. 
+Don't forget to use some magic *ejs*.
+
+#### I think I know enough for the moment about authentication :D
