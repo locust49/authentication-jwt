@@ -75,3 +75,11 @@ Seems hard and complicated.. but I heard it might be easier with the help of a p
 `npm install jsonwebtoken`
 
 Now, we can easily create a jwt with the method `jwt.sign()` where we specify the payload, secret sentence ? (i still don't get this part), and some atrtibutes such as the expiration time. After that, we send the token via a cookie :D
+
+# Log a user in
+
+On the server, we re going to take the credential and look for the email in the database, then we compare the hashed password with the existant one in the db. If correct : log in, else don't.
+
+I was thinking of how would we compare the hashed passwords knowing that they are hashed obviously, and contain a random generated Salt. Wellp, [this is how](https://stackoverflow.com/a/13024344)
+
+To "prove" that a user is logged in, we should create a jwt that needs to be present ofc and verified by the server.

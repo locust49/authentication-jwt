@@ -3,8 +3,14 @@ const jwt = require('jsonwebtoken');
 
 // handle errors
 const handleErrors = (error) => {
-	// console.log(error.message, error.code)
+	console.log(error.message, error.code)
 	let errors = { email: '', password: ''};
+
+	// incorrect credentials
+	if (error.message === 'incorrect email')
+		errors.email = 'that email is not registred';
+	if (error.message === 'incorrect password')
+		errors.password = 'that password is incorrect';
 
 	// duplicate error code
 	if (error.code === 11000) {
@@ -48,7 +54,7 @@ module.exports.signup_post = async (request, response) => {
 		response.cookie('JWT', token, {httpOnly: true, maxAge: maxAge * 1000});
 		response.status(201).json({user: user._id});
 	}
-	catch (error){
+	catch (error) {
 		const errors = handleErrors(error);
 		response.status(400).json({ errors });
 	}
@@ -57,6 +63,14 @@ module.exports.signup_post = async (request, response) => {
 module.exports.login_post = async (request, response) => {
 	const { email, password } = request.body;
 
-	console.log(email, password);
-	response.send('user login');
+	try {
+		const user = await User.login(email, password);
+		const token = createToken(user._id);
+		response.cookie('JWT', token, {httpOnly: true, maxAge: maxAge * 1000});
+		response.status(200).json({ user: user._id });
+	}
+	catch (error) {
+		const errors = handleErrors(error);
+		response.status(400).json({ errors });
+	}
 }
