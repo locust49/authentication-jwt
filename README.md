@@ -80,6 +80,11 @@ Now, we can easily create a jwt with the method `jwt.sign()` where we specify th
 
 On the server, we re going to take the credential and look for the email in the database, then we compare the hashed password with the existant one in the db. If correct : log in, else don't.
 
-I was thinking of how would we compare the hashed passwords knowing that they are hashed obviously, and contain a random generated Salt. Wellp, [this is how](https://stackoverflow.com/a/13024344)
+I was thinking of how would we compare the hashed passwords knowing that they are hashed obviously, and contain a random generated Salt. Wellp, [this is how](https://stackoverflow.com/a/13024344) !
 
 To "prove" that a user is logged in, we should create a jwt that needs to be present ofc and verified by the server.
+
+# Protecting Routes
+
+We need to detect that the JWT cookie exists on the request, secondly we need to verify that the jwt is authentic and hasn't been messed with.
+To do so, we create a [middleware](https://github.com/locust49/nodejs-tuto/blob/jwt/middleware/authMiddleware.js).
