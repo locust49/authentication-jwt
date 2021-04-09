@@ -21,7 +21,7 @@ A tool to simulate requests when we don't have a server :D
 We can use our own functions to validate stuff we want, but we also can use a 3rd party tool that does the job. 
 `npm install validator`
 
-###### N.B if the validator doesn't have a specific message property, we could define the error message just like in the line 9 of [this file](https://github.com/locust49/nodejs-tuto/blob/jwt/controllers/authController.js)
+###### N.B if the validator doesn't have a specific message property, we could define the error message just like in the line 15 of [this file](https://github.com/locust49/authentication-jwt/blob/main/controllers/authController.js)
 
 # Mongoose Hooks
 
@@ -87,7 +87,7 @@ To "prove" that a user is logged in, we should create a jwt that needs to be pre
 # Protecting Routes
 
 We need to detect that the JWT cookie exists on the request, secondly we need to verify that the jwt is authentic and hasn't been messed with.
-To do so, we create a [middleware](https://github.com/locust49/nodejs-tuto/blob/jwt/middleware/authMiddleware.js).
+To do so, we create a [middleware](https://github.com/locust49/authentication-jwt/blob/main/middleware/authMiddleware.js).
 
 # Logging out
 
